@@ -1,4 +1,4 @@
-description: Perform Appdome fusing.
+description: Perform Appdome fusing all types of android signings.
 
 parameters:
   runner:
@@ -49,7 +49,6 @@ steps:
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
-
   - run:
       name: Downloading files
         command: |
