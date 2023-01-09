@@ -1,6 +1,6 @@
 description: >
   Add together two numbers.
- 
+
 parameters:
   numA:
     type: integer
@@ -8,7 +8,6 @@ parameters:
   numB:
     type: integer
     description: "the second num"
-
 steps:
   - run:
       environment:
