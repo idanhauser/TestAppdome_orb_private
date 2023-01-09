@@ -1,19 +1,10 @@
-description: Perform Appdome fusing all types of android signings.
-
-
-
-
-
-
-
-
-
-
-
+description: >
+  Perform Appdome fusing all types of android signings.
 
 parameters:
   runner:
-    description: The operation to perform the fusing.
+    description: >
+      The operation to perform the fusing.
     type: enum
     enum:
       - "ANDROID_AUTO_SIGNING"
