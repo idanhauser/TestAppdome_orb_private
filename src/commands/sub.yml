@@ -1,0 +1,17 @@
+description: >
+  Minus together two numbers.
+
+parameters:
+  numA:
+    type: integer
+    description: "the first num"
+  numB:
+    type: integer
+    description: "the second num"
+steps:
+  - run:
+      environment:
+        PARAM_NUMA: <<parameters.numA>>
+        PARAM_NUMB: <<parameters.numB>>
+      name: Adding <<parameters.numA>> + <<parameters.numB>>
+      command: <<include(scripts/minus.py)>>
