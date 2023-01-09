@@ -19,7 +19,7 @@ steps:
   - checkout
   - when:
       condition:
-        equals: [ "ADD", <<parameters.runner>> ]
+        equals: [ "SUB", <<parameters.runner>> ]
       steps:
         - add:
             numA: <<parameters.numA>>

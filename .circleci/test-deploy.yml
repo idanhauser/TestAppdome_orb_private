@@ -16,7 +16,7 @@ jobs:
     steps:
       - checkout
       # Run your orb's commands to validate them.
-      - testappdome-orb/add:
+      - testappdome-orb/sub:
           numA: 2
           numB: 3
 workflows:
@@ -26,7 +26,7 @@ workflows:
       - command-tests:
           filters: *filters
       - testappdome-orb/appdome_runner:
-          runner: "ADD"
+          runner: "SUB"
           numA: 2
           numB: 3
           filters: *filters
