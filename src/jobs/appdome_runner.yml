@@ -22,8 +22,8 @@ steps:
   - checkout
   - when:
       condition:
-        equals: [ "ADD",<<parameters.runner>> ]
+        equals: [ "ADD", <<parameters.runner>> ]
       steps:
-          - add:
-              numA: <<parameters.numA>>
-              numB: <<parameters.numB>>
+        - add:
+            numA: <<parameters.numA>>
+            numB: <<parameters.numB>>
