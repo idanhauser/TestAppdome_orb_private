@@ -1,5 +1,16 @@
 description: Perform Appdome fusing all types of android signings.
 
+
+
+
+
+
+
+
+
+
+
+
 parameters:
   runner:
     description: The operation to perform the fusing.
