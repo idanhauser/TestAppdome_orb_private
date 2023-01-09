@@ -38,7 +38,7 @@ steps:
           git clone https://github.com/Appdome/appdome-api-python.git
   - run:
       name: Install requirments
-        command: |
+      command: |
           pip3 install -r ./appdome-api-python/requirements.txt
           sudo apt install wget
   - when:
@@ -53,16 +53,15 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - run:
       name: Downloading files
-        command: |
-          mkdir files
-          # echo "Downloading keystore file"
-          # wget << pipeline.parameters.keystore-file >> -O files/file.keystore
-          echo "Downloading android file"
-          wget << pipeline.parameters.appFile >> -O files/vanilla.apk
-          VAR=$<< pipeline.parameters.sign-overrides >>
-          if [[ -n $VAR ]]; then
-            echo "Downloading sign overrides"
-            wget $VAR -O ./files/sign_overrides.json
-          fi
-          ls files
-          fi
+      command: |
+        mkdir files
+        # echo "Downloading keystore file"
+        # wget << pipeline.parameters.keystore-file >> -O files/file.keystore
+        echo "Downloading android file"
+        wget << pipeline.parameters.appFile >> -O files/vanilla.apk
+        VAR=$<< pipeline.parameters.sign-overrides >>
+        if [[ -n $VAR ]]; then
+          echo "Downloading sign overrides"
+          wget $VAR -O ./files/sign_overrides.json
+        fi
+        ls files
