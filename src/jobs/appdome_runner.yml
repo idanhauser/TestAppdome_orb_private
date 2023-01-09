@@ -1,4 +1,4 @@
-description:  Perform Appdome fusing.
+description: Perform Appdome fusing.
 
 parameters:
   runner:
@@ -22,8 +22,8 @@ steps:
   - checkout
   - when:
       condition:
-        equals: [ "ADD",<<parameters.runner>>]
+        equals: [ "ADD",<<parameters.runner>> ]
       steps:
-          - add: 
+          - add:
               numA: <<parameters.numA>>
               numB: <<parameters.numB>>
