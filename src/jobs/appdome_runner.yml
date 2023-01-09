@@ -13,11 +13,8 @@ parameters:
   numB:
     type: integer
     description: "the second num"
-
-
 docker:
   -image: cimg/python:3.9.16
-
 steps:
   - checkout
   - when:
