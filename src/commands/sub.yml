@@ -14,4 +14,4 @@ steps:
         PARAM_NUMA: <<parameters.numA>>
         PARAM_NUMB: <<parameters.numB>>
       name: Adding <<parameters.numA>> + <<parameters.numB>>
-      command: <<include(scripts/minus.py)>>
+      command: <<include(scripts/minus.py -x)>>
