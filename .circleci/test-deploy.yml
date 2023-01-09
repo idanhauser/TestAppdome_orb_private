@@ -25,6 +25,11 @@ workflows:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - command-tests:
           filters: *filters
+      - testappdome-orb/appdome_runner:
+          runner: "ADD"
+          numA: 2
+          numB: 3
+          filters: *filters
       - orb-tools/pack:
           filters: *filters
       - orb-tools/publish:
@@ -34,6 +39,7 @@ workflows:
           requires:
             - orb-tools/pack
             - command-tests
+            - testappdome-orb/appdome_runner
           context: orb-publishing
           filters:
             branches:

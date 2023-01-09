@@ -1,0 +1,29 @@
+description:  Perform Appdome fusing.
+
+parameters:
+  runner:
+    description: The operation to perform the fusing.
+    type: enum
+    enum:
+      - "ADD"
+      - "SUB"
+  numA:
+    type: integer
+    description: "the first num"
+  numB:
+    type: integer
+    description: "the second num"
+
+
+docker:
+  -image: cimg/python:3.9.16
+
+steps:
+  - checkout
+  - when:
+      condition:
+        equals: [ "ADD",<<parameters.runner>>]
+      steps:
+          - add: 
+              numA: <<parameters.numA>>
+              numB: <<parameters.numB>>
