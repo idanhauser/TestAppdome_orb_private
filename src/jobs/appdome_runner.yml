@@ -34,7 +34,7 @@ steps:
   - checkout
   - run:
       name: Clone Appdome API repository
-        command: |
+      command: |
           git clone https://github.com/Appdome/appdome-api-python.git
   - run:
       name: Install requirments
@@ -58,7 +58,7 @@ steps:
           # echo "Downloading keystore file"
           # wget << pipeline.parameters.keystore-file >> -O files/file.keystore
           echo "Downloading android file"
-          wget << pipeline.parameters.app-file >> -O files/vanilla.apk
+          wget << pipeline.parameters.appFile >> -O files/vanilla.apk
           VAR=$<< pipeline.parameters.sign-overrides >>
           if [[ -n $VAR ]]; then
             echo "Downloading sign overrides"
