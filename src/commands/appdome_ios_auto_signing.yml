@@ -1,0 +1,40 @@
+description: >
+  running appdome ios auto signing.
+
+parameters:
+  appFile:
+    type: string
+    description: "Path to application"
+  fusion-set-id:
+    type: string
+    description: "Fusion set id"
+  keystore-file:
+    type: string
+    default: ""
+    description: "keystore file should be .p12 for ios or .keystore for android"
+  keystore-password:
+    type: string
+    default: ""
+    description: "keystore password"
+  provisioning-profiles:
+    type: string
+    default: ""
+  entitlements:
+    type: string
+    default: ""
+  sign-overrids:
+    type: string
+    default: ""
+    description: "sign overrids"
+steps:
+  - run:
+      environment:
+        APPFILE: <<parameters.appFile>>
+        FUSIONSET: <<parameters.fusion-set-id>>
+        KEYSTORE: <<parameters.keystore-file>>
+        KEYSTORE_PASS: <<parameters.keystore-password>>
+        PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
+        ENTITLEMENTS: <<parameters.entitlements>>
+        SIGNOVERRIDS: <<parameters.sign-overrids>>
+      name: Build Sign Download
+      command: <<include(scripts/appdome_ios_auto_sign.sh)>>

@@ -10,6 +10,9 @@ parameters:
       - "ANDROID_AUTO_SIGNING"
       - "ANDROID_PRIVATE_SIGNING"
       - "ANDROID_AUTO_DEV_SIGNING"
+      - "IOS_AUTO_SIGNING"
+      - "IOS_PRIVATE_SIGNING"
+      - "IOS_AUTO_DEV_SIGNING"
   appFile:
     type: string
     description: "Path to application"
@@ -42,7 +45,13 @@ parameters:
   keystore-key-password:
     type: string
     default: ""
-
+  #IOS
+  provisioning-profiles:
+    type: string
+    default: ""
+  entitlements:
+    type: string
+    default: ""
 docker:
   - image: cimg/python:3.9.16
 steps:
@@ -92,4 +101,34 @@ steps:
             fusion-set-id: <<parameters.fusion-set-id>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
+            sign-overrids: <<parameters.sign-overrids>>
+  - when:
+      condition:
+        equals: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_ios_auto_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            keystore-file: <<parameters.keystore-file>>
+            keystore-password: <<parameters.keystore-password>>
+            provisioning-profiles: <<parameters.provisioning-profiles>>
+            entitlements: <<parameters.entitlements>>
+            sign-overrids: <<parameters.sign-overrids>>
+  - when:
+      condition:
+        equals: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_ios_private_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            provisioning-profiles: <<parameters.provisioning-profiles>>
+            sign-overrids: <<parameters.sign-overrids>>
+  - when:
+      condition:
+        equals: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_ios_autodev_private_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrids: <<parameters.sign-overrids>>

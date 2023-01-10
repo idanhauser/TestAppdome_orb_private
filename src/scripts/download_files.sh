@@ -10,6 +10,6 @@ if [[ -n "${SIGNOVERRIDS}" ]]; then
 fi
 if [[ -n "${KEYSTORE}" ]]; then
     echo "Downloading keystore"
-    wget "${KEYSTORE}" -O files/keystore.p12
+    wget "${KEYSTORE}" -O files/keystore.keystore
 fi
 ls files
