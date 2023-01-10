@@ -49,6 +49,6 @@ steps:
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
-  - run:
-      name: Downloading files
-      command: <<include(scripts/download_files.sh)>>
+    - run:
+        name: Downloading files
+        command: <<include(scripts/download_files.sh)>>
