@@ -1,12 +1,12 @@
 #!/bin/bash
 
 
-mkdir files
+mkdir appdome_runner/files
 echo "Downloading android file"
-wget "${APPFILE}" -O files/vanilla.apk
+wget "${APPFILE}" -O appdome_runner/files/vanilla.apk
 VAR="${SIGNOVERRIDS}"
 if [[ -n $VAR ]]; then
     echo "Downloading sign overrides"
-    wget "$VAR" -O ./files/sign_overrides.json
+    wget "$VAR" -O .appdome_runner/files/sign_overrides.json
 fi
 ls files
