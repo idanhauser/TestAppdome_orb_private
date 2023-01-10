@@ -57,9 +57,6 @@ docker:
 steps:
   - checkout
   - run:
-      name: print runner value
-      command: echo $<<parameters.runner>>
-  - run:
       name: Clone Appdome API repository
       command: |
           git clone https://github.com/Appdome/appdome-api-python.git
@@ -75,7 +72,7 @@ steps:
       command: <<include(scripts/download_files.sh)>>
   - when:
       condition:
-        equals: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
+        equals: [ parameters.runner, "ANDROID_PRIVATE_SIGNING" ]
       steps:
         - appdome_android_private_signing:
             appFile: <<parameters.appFile>>
@@ -85,7 +82,7 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - when:
       condition:
-        equals: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
+        equals: [ parameters.runner, "ANDROID_AUTO_SIGNING" ]
       steps:
         - appdome_android_auto_signing:
             appFile: <<parameters.appFile>>
