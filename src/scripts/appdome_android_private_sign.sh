@@ -1,9 +1,9 @@
 #!/bin/bash
 
-name: Build Sign Download
+name: 
 command: |
 mkdir output
-VAR=$<< pipeline.parameters.sign-overrides >>
+VAR="${GOOGLEPLAYSIGN}"
 if [[ -n $VAR ]]; then
     VAR="${GOOGLEPLAYSIGN}"
     if [ $VAR = true ]; then
