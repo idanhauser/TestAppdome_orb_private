@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-mkdir appdome_runner/files
+mkdir files
 echo "Downloading android file"
 wget "${APPFILE}" -O appdome_runner/files/vanilla.apk
 VAR="${SIGNOVERRIDS}"
