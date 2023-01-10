@@ -3,7 +3,7 @@
 
 mkdir files
 echo "Downloading android file"
-echo "${APPFILE}"
+echo "${SIGNOVERRIDS}"
 wget -V
 VAR="${SIGNOVERRIDS}"
 if [[ -n $VAR ]]; then
