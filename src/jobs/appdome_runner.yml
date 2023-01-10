@@ -61,6 +61,7 @@ steps:
       name: Downloading files
       command: <<include(scripts/download_files.sh)>>
   - when:
+      name: "ANDROID_AUTO_SIGNING"
       condition:
         equals: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
@@ -71,6 +72,7 @@ steps:
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
   - when:
+      name: "ANDROID_AUTO_SIGNING"
       condition:
           equals: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
         steps:
