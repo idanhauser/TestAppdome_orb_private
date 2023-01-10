@@ -3,6 +3,7 @@
 
 mkdir output
 VAR="${GOOGLEPLAYSIGN}"
+ls
 if [[ -n "$VAR" ]]; then
     VAR="${GOOGLEPLAYSIGN}"
     if [ "$VAR" = true ]; then
