@@ -8,7 +8,7 @@ parameters:
   fusion-set-id:
     type: string
     description: "Fusion set id"
-keystore-file:
+  keystore-file:
     type: string
     default: ""
     description: "keystore file should be .p12"

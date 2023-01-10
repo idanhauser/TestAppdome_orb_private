@@ -71,7 +71,7 @@ steps:
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
   - when:
-        condition:
+      condition:
           equals: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
         steps:
           - appdome_android_private_signing:
@@ -84,5 +84,5 @@ steps:
               sign-overrids: <<parameters.sign-overrids>>
   - store_artifacts:
       path: ./output/appdome_vanilla.apk
-  - store_artifacts: 
+  - store_artifacts:
       path: ./output/certificate.pdf
