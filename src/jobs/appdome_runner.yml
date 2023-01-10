@@ -44,7 +44,7 @@ steps:
         equals: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_private_signing:
-            APPFILE: <<parameters.appFile>>
+            appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
