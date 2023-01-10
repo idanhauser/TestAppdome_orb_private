@@ -55,8 +55,6 @@ steps:
       name: Downloading files
       command: |
         mkdir files
-        # echo "Downloading keystore file"
-        # wget << pipeline.parameters.keystore-file >> -O files/file.keystore
         echo "Downloading android file"
         wget << pipeline.parameters.appFile >> -O files/vanilla.apk
         VAR=$<< pipeline.parameters.sign-overrides >>
