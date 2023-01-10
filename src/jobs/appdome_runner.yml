@@ -61,7 +61,6 @@ steps:
       name: Downloading files
       command: <<include(scripts/download_files.sh)>>
   - when:
-      name: "ANDROID_AUTO_SIGNING"
       condition:
         equals: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
