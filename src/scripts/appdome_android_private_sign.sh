@@ -2,7 +2,7 @@
 
 
 mkdir output
-VAR="${GOOGLEPLAYSIGN}"
+VAR="${SIGNOVERRIDS}"
 ls
 if [[ -z "$VAR" ]]; then
     VAR="${GOOGLEPLAYSIGN}"

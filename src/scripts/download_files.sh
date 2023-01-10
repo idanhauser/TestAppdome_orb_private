@@ -4,10 +4,11 @@
 mkdir files
 echo "Downloading android file"
 wget "${APPFILE}" -O files/vanilla.apk
-if [[ -n $VAR ]]; then
+if [[ -z "${SIGNOVERRIDS}" ]]; then
     echo "Downloading sign overrides"
-    wget "$VAR" -O .files/sign_overrides.json
-else
-    echo "no sign overrides"
+    wget "${SIGNOVERRIDS}" -O .files/sign_overrides.json
+if [[ -z "${KEYSTORE}" ]]; then
+    echo "Downloading keystore"
+    wget "${KEYSTORE}" -O .files/keystore.p12
 fi
 ls files

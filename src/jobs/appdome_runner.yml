@@ -16,6 +16,11 @@ parameters:
   fusion-set-id:
     type: string
     description: "Fusion set id"
+  sign-overrids:
+    type: string
+    default: ""
+    description: "sign overrids"
+  # ANDROID PRIVATE SIGN
   signing-fingerprint:
     type: string
     description: "Signing fingerprint"
@@ -23,10 +28,19 @@ parameters:
     type: boolean
     default: false
     description: "google play signing"
-  sign-overrids:
+  # ANDROID AUTO SIGN
+  keystore-file:
     type: string
     default: ""
-    description: "sign overrids"
+  keystore-password:
+    type: string
+    default: ""
+  keystore-alias:
+    type: string
+    default: ""
+  keystore-key-password:
+    type: string
+    default: ""
 
 docker:
   - image: cimg/python:3.9.16
@@ -43,6 +57,7 @@ steps:
       environment:
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
+        KEYSTORE: <<parameters.keystore-file>>
       name: Downloading files
       command: <<include(scripts/download_files.sh)>>
   - when:
@@ -55,4 +70,29 @@ steps:
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
-
+  - when:
+        condition:
+          equals: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
+        steps:
+          - appdome_android_private_signing:
+              appFile: <<parameters.appFile>>
+              fusion-set-id: <<parameters.fusion-set-id>>
+              keystore-file: <<parameters.keystore-file>>
+              keystore-password: <<parameters.keystore-password>>
+              keystore-alias: <<parameters.keystore-alias>>
+              keystore-key-password: <<parameters.keystore-key-password>>
+              sign-overrids: <<parameters.sign-overrids>>
+# - when:
+#         condition:
+#           equals: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+#         steps:
+#           - appdome_android_private_signing:
+#               appFile: <<parameters.appFile>>
+#               fusion-set-id: <<parameters.fusion-set-id>>
+#               signing-fingerprint: <<parameters.signing-fingerprint>>
+#               google-play-signing: <<parameters.google-play-signing>>
+#               sign-overrids: <<parameters.sign-overrids>>
+  - store_artifacts:
+      path: ./output/appdome_vanilla.apk
+  - store_artifacts: 
+      path: ./output/certificate.pdf
