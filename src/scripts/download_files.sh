@@ -4,7 +4,7 @@
 mkdir files
 echo "Downloading android file"
 echo "${APPFILE}"
-wget "${APPFILE}" -O files/vanilla.apk
+wget -V
 VAR="${SIGNOVERRIDS}"
 if [[ -n $VAR ]]; then
     echo "Downloading sign overrides"
