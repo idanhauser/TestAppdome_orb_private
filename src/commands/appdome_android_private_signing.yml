@@ -2,12 +2,12 @@ description: >
   running appdome android private signing.
 
 parameters:
-  # appFile:
-  #   type: string
-  #   description: "Path to application"
-  # fusion-set-id:
-  #   type: string
-  #   description: "Fusion set id"
+  appFile:
+    type: string
+    description: "Path to application"
+  fusion-set-id:
+    type: string
+    description: "Fusion set id"
   signing-fingerprint:
     type: string
     description: "Signing fingerprint"
@@ -22,8 +22,8 @@ parameters:
 steps:
   - run:
       environment:
-        # APPFILE: <<parameters.appFile>>
-        # FUSIONSET: <<parameters.fusion-set-id>>
+        APPFILE: <<parameters.appFile>>
+        FUSIONSET: <<parameters.fusion-set-id>>
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDS: <<parameters.sign-overrids>>
