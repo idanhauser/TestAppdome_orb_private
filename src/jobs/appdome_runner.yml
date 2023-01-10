@@ -65,6 +65,7 @@ steps:
       condition:
         equals: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
+        name: "ANDROID_AUTO_SIGNING"
         - appdome_android_private_signing:
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
@@ -74,8 +75,8 @@ steps:
   - when:
       name: "ANDROID_AUTO_SIGNING"
       condition:
-          equals: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
-        steps:
+        equals: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
+      steps:
           - appdome_android_private_signing:
               appFile: <<parameters.appFile>>
               fusion-set-id: <<parameters.fusion-set-id>>
