@@ -39,16 +39,17 @@ steps:
   - run:
       name: Install requirments
       command: <<include(scripts/install_requirements.sh)>>
+  - run:
+      name: Downloading files
+      command: <<include(scripts/download_files.sh)>>
   - when:
       condition:
         equals: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_private_signing:
-            appFile: <<parameters.appFile>>
+            APPFILE: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
-        - run:
-            name: Downloading files
-            command: <<include(scripts/download_files.sh)>>
+
