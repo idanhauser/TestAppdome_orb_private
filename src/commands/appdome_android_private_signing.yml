@@ -22,10 +22,10 @@ parameters:
 steps:
   - run:
       environment:
-        APP_PATH: <<parameters.appFile>>
+        APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDS: <<parameters.sign-overrids>>
       name: Running android private signing
-      command: <<include(scripts/add.sh)>>
+      # command: <<include(scripts/add.sh)>>
