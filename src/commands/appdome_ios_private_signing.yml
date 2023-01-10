@@ -23,4 +23,4 @@ steps:
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         SIGNOVERRIDS: <<parameters.sign-overrids>>
       name: Build Sign Download
-      command: <<include(scripts/appdome_ios_private_signing.sh)>>
+      command: <<include(scripts/appdome_ios_private_sign.sh)>>
