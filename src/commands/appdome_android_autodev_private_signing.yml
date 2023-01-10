@@ -1,0 +1,31 @@
+description: >
+  running appdome android private signing.
+
+parameters:
+  appFile:
+    type: string
+    description: "Path to application"
+  fusion-set-id:
+    type: string
+    description: "Fusion set id"
+  signing-fingerprint:
+    type: string
+    description: "Signing fingerprint"
+  google-play-signing:
+    type: boolean
+    default: false
+    description: "google play signing"
+  sign-overrids:
+    type: string
+    default: ""
+    description: "sign overrids"
+steps:
+  - run:
+      environment:
+        APPFILE: <<parameters.appFile>>
+        FUSIONSET: <<parameters.fusion-set-id>>
+        FINGERPRINT: <<parameters.signing-fingerprint>>
+        GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
+        SIGNOVERRIDS: <<parameters.sign-overrids>>
+      name: Build Sign Download
+      command: <<include(scripts/appdome_android_autodev_private_sign.sh)>>

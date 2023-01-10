@@ -83,3 +83,13 @@ steps:
             keystore-alias: <<parameters.keystore-alias>>
             keystore-key-password: <<parameters.keystore-key-password>>
             sign-overrids: <<parameters.sign-overrids>>
+  - when:
+      condition:
+        equals: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+      steps:
+        - appdome_android_private_signing:
+            appFile: <<parameters.appFile>>
+            fusion-set-id: <<parameters.fusion-set-id>>
+            signing-fingerprint: <<parameters.signing-fingerprint>>
+            google-play-signing: <<parameters.google-play-signing>>
+            sign-overrids: <<parameters.sign-overrids>>
