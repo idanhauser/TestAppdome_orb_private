@@ -35,6 +35,8 @@ workflows:
           keystore-password: appdome
           keystore-alias: appdome
           keystore-key-password: appdome
+          signing-fingerprint: "8DF593C1B6EAA6EADADCE36831FE82B08CAC8D74"
+
       - testappdome-orb/appdome_runner:
           runner: "ANDROID_PRIVATE_SIGNING"
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/TimeCard1.apk"
