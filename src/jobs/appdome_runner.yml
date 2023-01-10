@@ -23,6 +23,7 @@ parameters:
   # ANDROID PRIVATE SIGN
   signing-fingerprint:
     type: string
+    default: ""
     description: "Signing fingerprint"
   google-play-signing:
     type: boolean
