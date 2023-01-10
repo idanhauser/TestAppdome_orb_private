@@ -82,7 +82,3 @@ steps:
               keystore-alias: <<parameters.keystore-alias>>
               keystore-key-password: <<parameters.keystore-key-password>>
               sign-overrids: <<parameters.sign-overrids>>
-  - store_artifacts:
-      path: ./output/appdome_vanilla.apk
-  - store_artifacts:
-      path: ./output/certificate.pdf
