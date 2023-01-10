@@ -40,9 +40,9 @@ steps:
       name: Install requirments
       command: <<include(scripts/install_requirements.sh)>>
   - run:
-      paxrameters:
-        appFile: <<parameters.appFile>>
-        fusion-set-id: <<parameters.fusion-set-id>>
+      environment:
+        APPFILE: <<parameters.appFile>>
+        FUSIONSET: <<parameters.fusion-set-id>>
       name: Downloading files
       command: <<include(scripts/download_files.sh)>>
   - when:
