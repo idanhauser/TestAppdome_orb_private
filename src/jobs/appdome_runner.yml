@@ -55,10 +55,10 @@ parameters:
 docker:
   - image: cimg/python:3.9.16
 steps:
-  -run:
-    name: print runner value
-    command: echo $<<parameters.runner>>
   - checkout
+  - run:
+      name: print runner value
+      command: echo $<<parameters.runner>>
   - run:
       name: Clone Appdome API repository
       command: |
