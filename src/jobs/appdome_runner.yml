@@ -38,9 +38,8 @@ steps:
           git clone https://github.com/Appdome/appdome-api-python.git
   - run:
       name: Install requirments
-      command: |
-          pip3 install -r ./appdome-api-python/requirements.txt
-          sudo apt install wget
+      command: <<include(scripts/install_requirements.sh)>>
+          
   - when:
       condition:
         equals: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
