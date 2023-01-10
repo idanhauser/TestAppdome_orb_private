@@ -71,7 +71,7 @@ steps:
               keystore-password: <<parameters.keystore-password>>
               keystore-alias: <<parameters.keystore-alias>>
               keystore-key-password: <<parameters.keystore-key-password>>
-              sign-overrids: <<parameters.sign-overrids>>        
+              sign-overrids: <<parameters.sign-overrids>>
   - when:
       condition:
         equals: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
