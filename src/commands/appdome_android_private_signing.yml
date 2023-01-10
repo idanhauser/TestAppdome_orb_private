@@ -27,5 +27,5 @@ steps:
         FINGERPRINT: <<parameters.signing-fingerprint>>
         GOOGLEPLAYSIGN: <<parameters.google-play-signing>>
         SIGNOVERRIDS: <<parameters.sign-overrids>>
-      name: Running android private signing
-      # command: <<include(scripts/add.sh)>>
+      name: Build Sign Download
+      command: <<include(scripts/appdome_android_private_sign.sh)>>
