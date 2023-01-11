@@ -10,13 +10,7 @@ if [[ -n "${SIGNOVERRIDS}" ]]; then
 fi
 if [[ -n "${KEYSTORE}" ]]; then
     echo "Downloading keystore"
-    if [[ "${KEYSTORE}" == *".keystore" ]]; then
-        wget "${KEYSTORE}" -O files/keystore.keystore
-    elif [[ "${KEYSTORE}" == *".p12" ]]; then
-        wget "${KEYSTORE}" -O files/keystore.p12
-    else
-        echo "Error: Unsupported file format"
-    fi
+    wget "${KEYSTORE}" -O files/"$(basename "$KEYSTORE")"
 fi
 if [[ -n "${PROVISIONING_PROFILES}" ]]; then
     echo "Downloading provisioning-profiles"
@@ -27,5 +21,5 @@ if [[ -n "${ENTITLEMENTS}" ]]; then
     wget "${ENTITLEMENTS}" -O files/entitlements/
 fi
 ls files
-# APPFILE=$(basename "$APPFILE")
+
 
