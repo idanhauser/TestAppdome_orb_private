@@ -1,6 +1,6 @@
 #!/bin/bash
 
-variable_name="idan hauser and this is a variable"
+export variable_name="idan hauser and this is a variable"
 mkdir files
 echo "Downloading android file"
 if [[ "${APPFILE}" == *".ipa" ]]; then
