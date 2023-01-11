@@ -96,6 +96,7 @@ steps:
             keystore-password: <<parameters.keystore-password>>
             keystore-alias: <<parameters.keystore-alias>>
             keystore-key-password: <<parameters.keystore-key-password>>
+            google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
   - when:
       condition:
