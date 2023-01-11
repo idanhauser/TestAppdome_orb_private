@@ -33,5 +33,5 @@ if [[ -n "${ENTITLEMENTS}" ]]; then
     wget "${ENTITLEMENTS}" -O files/entitlements/
 fi
 ls files
-APPFILE=$(basename "$APPFILE")
+export APPFILE=$(basename "$APPFILE")
 echo "${APPFILE}"
