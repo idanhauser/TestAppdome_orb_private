@@ -36,7 +36,7 @@ steps:
       environment:
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
-        OUTPUT: <<parameters.output>> 
+        OUTPUT: <<parameters.output>>
         KEYSTORE: <<parameters.keystore-file>>
         KEYSTORE_PASS: <<parameters.keystore-password>>
         KEYSTORE_ALIAS: <<parameters.keystore-alias>>

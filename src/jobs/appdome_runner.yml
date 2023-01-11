@@ -89,7 +89,7 @@ steps:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_auto_signing:
-            appFile:  <<parameters.appFile>>
+            appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
             keystore-file: <<parameters.keystore-file>>
