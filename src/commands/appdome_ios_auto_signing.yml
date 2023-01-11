@@ -40,5 +40,5 @@ steps:
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         ENTITLEMENTS: <<parameters.entitlements>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-      name: Build Sign Download
+      name: Build Sign Download (iOS - Automatic Signing)
       command: <<include(scripts/appdome_ios_auto_sign.sh)>>

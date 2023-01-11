@@ -46,5 +46,5 @@ steps:
         KEYSTORE_ALIAS: <<parameters.keystore-alias>>
         KEYSTORE_KEY_PASS: <<parameters.keystore-key-password>>
         SIGNOVERRIDES: <<parameters.sign-overrides>>
-      name: Build Sign Download
+      name: Build Sign Download (Android - Automatic Signing)
       command: <<include(scripts/appdome_android_auto_sign.sh)>>
