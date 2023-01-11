@@ -33,3 +33,4 @@ if [[ -n "${ENTITLEMENTS}" ]]; then
     wget "${ENTITLEMENTS}" -O files/entitlements/
 fi
 ls files
+echo $current_date
