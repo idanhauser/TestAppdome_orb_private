@@ -72,7 +72,7 @@ steps:
       command: <<include(scripts/download_files.sh)>>
   - when:
       condition:
-        equals: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
+        equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_private_signing:
             appFile: <<parameters.appFile>>
@@ -82,7 +82,7 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - when:
       condition:
-        equals: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
+        equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_auto_signing:
             appFile: <<parameters.appFile>>
@@ -94,7 +94,7 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - when:
       condition:
-        equals: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+        equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_android_autodev_private_signing:
             appFile: <<parameters.appFile>>
@@ -104,7 +104,7 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - when:
       condition:
-        equals: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
+        equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_auto_signing:
             appFile: <<parameters.appFile>>
@@ -116,7 +116,7 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - when:
       condition:
-        equals: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
+        equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_private_signing:
             appFile: <<parameters.appFile>>
@@ -125,7 +125,7 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - when:
       condition:
-        equals: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
+        equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
       steps:
         - appdome_ios_autodev_private_signing:
             appFile: <<parameters.appFile>>
