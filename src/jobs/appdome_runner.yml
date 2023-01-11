@@ -148,3 +148,4 @@ steps:
   - store_artifacts:
       path: ./output/
       destination: appdome_fusion
+      when: on_success
