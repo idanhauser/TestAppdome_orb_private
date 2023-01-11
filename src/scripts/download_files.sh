@@ -14,7 +14,7 @@ if [[ -n "${KEYSTORE}" ]]; then
 fi
 if [[ -n "${PROVISIONING_PROFILES}" ]]; then
     echo "Downloading provisioning-profiles"
-    wget "${PROVISIONING_PROFILES}" -O files/provisioning-profiles/
+    wget "${PROVISIONING_PROFILES}" -O files/"$(basename "$PROVISIONING_PROFILES")"
 fi
 if [[ -n "${ENTITLEMENTS}" ]]; then
     echo "Downloading entitlements"
