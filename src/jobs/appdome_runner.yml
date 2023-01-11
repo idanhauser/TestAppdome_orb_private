@@ -71,6 +71,9 @@ steps:
         APPFILE: <<parameters.appFile>>
         FUSIONSET: <<parameters.fusion-set-id>>
         KEYSTORE: <<parameters.keystore-file>>
+        SIGNOVERRIDES: <<parameters.sign-overrides>>
+        PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
+        ENTITLEMENTS: <<parameters.entitlements>>
       name: Downloading files
       command: <<include(scripts/download_files.sh)>>
   - when:
