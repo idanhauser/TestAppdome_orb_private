@@ -18,7 +18,7 @@ if [[ -n "${PROVISIONING_PROFILES}" ]]; then
 fi
 if [[ -n "${ENTITLEMENTS}" ]]; then
     echo "Downloading entitlements"
-    wget "${ENTITLEMENTS}" -O files/entitlements/
+    wget "${ENTITLEMENTS}" -O files/"$(basename "$ENTITLEMENTS")"
 fi
 ls files
 
