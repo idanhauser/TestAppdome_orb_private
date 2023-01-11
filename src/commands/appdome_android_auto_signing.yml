@@ -31,10 +31,10 @@ parameters:
     type: boolean
     default: false
     description: "google play signing"
-  sign-overrids:
+  sign-overrides:
     type: string
     default: ""
-    description: "sign overrids"
+    description: "sign overrides"
 steps:
   - run:
       environment:

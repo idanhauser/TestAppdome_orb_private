@@ -25,7 +25,7 @@ parameters:
   entitlements:
     type: string
     default: ""
-  sign-overrids:
+  sign-overrides:
     type: string
     default: ""
     description: "sign overrids"

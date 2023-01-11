@@ -22,10 +22,10 @@ parameters:
   output:
     type: string
     description: "The name of the output application."
-  sign-overrids:
+  sign-overrides:
     type: string
     default: ""
-    description: "sign overrids"
+    description: "sign overrides"
   # ANDROID PRIVATE SIGN
   signing-fingerprint:
     type: string
@@ -83,7 +83,7 @@ steps:
             output: <<parameters.output>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
-            sign-overrids: <<parameters.sign-overrids>>
+            sign-overrides: <<parameters.sign-overrids>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_SIGNING", <<parameters.runner>> ]
@@ -97,7 +97,7 @@ steps:
             keystore-alias: <<parameters.keystore-alias>>
             keystore-key-password: <<parameters.keystore-key-password>>
             google-play-signing: <<parameters.google-play-signing>>
-            sign-overrids: <<parameters.sign-overrids>>
+            sign-overrides: <<parameters.sign-overrids>>
   - when:
       condition:
         equal: [ "ANDROID_AUTO_DEV_SIGNING", <<parameters.runner>> ]
@@ -108,7 +108,7 @@ steps:
             output: <<parameters.output>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
-            sign-overrids: <<parameters.sign-overrids>>
+            sign-overrides: <<parameters.sign-overrids>>
   - when:
       condition:
         equal: [ "IOS_AUTO_SIGNING", <<parameters.runner>> ]
@@ -121,7 +121,7 @@ steps:
             keystore-password: <<parameters.keystore-password>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             entitlements: <<parameters.entitlements>>
-            sign-overrids: <<parameters.sign-overrids>>
+            sign-overrides: <<parameters.sign-overrids>>
   - when:
       condition:
         equal: [ "IOS_PRIVATE_SIGNING", <<parameters.runner>> ]
@@ -131,7 +131,7 @@ steps:
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
-            sign-overrids: <<parameters.sign-overrids>>
+            sign-overrides: <<parameters.sign-overrids>>
   - when:
       condition:
         equal: [ "IOS_AUTO_DEV_SIGNING", <<parameters.runner>> ]
@@ -141,7 +141,7 @@ steps:
             fusion-set-id: <<parameters.fusion-set-id>>
             output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
-            sign-overrids: <<parameters.sign-overrids>>
+            sign-overrides: <<parameters.sign-overrids>>
   - store_artifacts:
       path: ./output/
       destination: appdome_fusion

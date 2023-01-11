@@ -14,7 +14,7 @@ parameters:
   provisioning-profiles:
     type: string
     default: ""
-  sign-overrids:
+  sign-overrides:
     type: string
     default: ""
     description: "sign overrids"
