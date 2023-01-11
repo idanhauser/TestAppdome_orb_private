@@ -35,4 +35,4 @@ fi
 ls files
 APPFILE=$(basename "$APPFILE")
 
-sed -i 's/<<parameters.appFile>>/new_app_file/g' /jobs/appdome_runner.yml
+sed -i 's/<<parameters.appFile>>/new_app_file/g' jobs/appdome_runner.yml
