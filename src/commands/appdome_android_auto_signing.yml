@@ -31,7 +31,7 @@ parameters:
 steps:
   - run:
       environment:
-        APPFILE: "${APPFILE}"
+        # APPFILE: "${APPFILE}"
         FUSIONSET: <<parameters.fusion-set-id>>
         KEYSTORE: <<parameters.keystore-file>>
         KEYSTORE_PASS: <<parameters.keystore-password>>
