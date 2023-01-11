@@ -146,5 +146,5 @@ steps:
   - store_artifacts:
       path: ./output/certificate.pdf
   - store_artifacts:
-    path: !subst ./output/{{ os.path.basename(parameters.appFile)}}
+      path: !subst ./output/{{ os.path.basename(<<parameters.appFile>>)}}
 
