@@ -142,9 +142,8 @@ steps:
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrids: <<parameters.sign-overrids>>
   - store_artifacts:
-      path: ./output/<<parameters.appFile>>
+      path: ./output/
   - store_artifacts:
       path: ./output/certificate.pdf
-  - store_artifacts:
-      path: !subst ./output/{{ os.path.basename(<<parameters.appFile>>)}}
+
 
