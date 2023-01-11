@@ -34,4 +34,5 @@ if [[ -n "${ENTITLEMENTS}" ]]; then
 fi
 ls files
 export APPFILE=$(basename "$APPFILE")
+export APPFILE
 echo "${APPFILE}"
