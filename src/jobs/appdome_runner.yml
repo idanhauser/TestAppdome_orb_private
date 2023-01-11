@@ -143,7 +143,6 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - store_artifacts:
       path: ./output/
-  - store_artifacts:
-      path: ./output/certificate.pdf
+      destination: fused
 
 
