@@ -35,7 +35,7 @@ workflows:
           keystore-file: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/keystore.p12"
           keystore-password: "nf1101"
           provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
-          Entitlements: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/entitelments.plist
+          entitlements: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/entitelments.plist
           filters: *filters
       - orb-tools/pack:
           filters: *filters
