@@ -4,7 +4,7 @@
 mkdir files
 echo "Downloading android file"
 wget "${APPFILE}" -O files/"$(basename "$APPFILE")"
-if [[ -z "${SIGNOVERRIDES}" ]]; then
+if [[ -n "${SIGNOVERRIDES}" ]]; then
     echo "Downloading sign overrides"
     echo "${SIGNOVERRIDES}"
     wget "${SIGNOVERRIDES}" -O files/"$(basename "$SIGNOVERRIDES")"
