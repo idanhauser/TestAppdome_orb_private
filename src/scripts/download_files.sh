@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export variable_name="idan hauser and this is a variable"
+
 mkdir files
 echo "Downloading android file"
 if [[ "${APPFILE}" == *".ipa" ]]; then
@@ -33,4 +33,4 @@ if [[ -n "${ENTITLEMENTS}" ]]; then
     wget "${ENTITLEMENTS}" -O files/entitlements/
 fi
 ls files
-echo "${variable_name}"
+echo $(basename "${APPFILE}")
