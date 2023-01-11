@@ -19,6 +19,9 @@ parameters:
   fusion-set-id:
     type: string
     description: "Fusion set id"
+  output:
+    type: string
+    description: "The name of the output application."
   sign-overrids:
     type: string
     default: ""
@@ -77,6 +80,7 @@ steps:
         - appdome_android_private_signing:
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
@@ -87,6 +91,7 @@ steps:
         - appdome_android_auto_signing:
             appFile:  <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
             keystore-file: <<parameters.keystore-file>>
             keystore-password: <<parameters.keystore-password>>
             keystore-alias: <<parameters.keystore-alias>>
@@ -99,6 +104,7 @@ steps:
         - appdome_android_autodev_private_signing:
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
             signing-fingerprint: <<parameters.signing-fingerprint>>
             google-play-signing: <<parameters.google-play-signing>>
             sign-overrids: <<parameters.sign-overrids>>
@@ -109,6 +115,7 @@ steps:
         - appdome_ios_auto_signing:
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
             keystore-file: <<parameters.keystore-file>>
             keystore-password: <<parameters.keystore-password>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
@@ -121,6 +128,7 @@ steps:
         - appdome_ios_private_signing:
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrids: <<parameters.sign-overrids>>
   - when:
@@ -130,9 +138,10 @@ steps:
         - appdome_ios_autodev_private_signing:
             appFile: <<parameters.appFile>>
             fusion-set-id: <<parameters.fusion-set-id>>
+            output: <<parameters.output>>
             provisioning-profiles: <<parameters.provisioning-profiles>>
             sign-overrids: <<parameters.sign-overrids>>
   - store_artifacts:
-      path: ./output/appdome_vanilla.apk
+      path: ./output/<<parameters.appFile>>
   - store_artifacts:
       path: ./output/certificate.pdf
