@@ -34,5 +34,5 @@ if [[ -n "${ENTITLEMENTS}" ]]; then
 fi
 ls files
 APPFILE=$(basename "$APPFILE")
-export APPFILE
-echo "${APPFILE}"
+
+sed -i 's/<<parameters.appFile>>/new_app_file/g' /jobs/appdome_runner.yml
