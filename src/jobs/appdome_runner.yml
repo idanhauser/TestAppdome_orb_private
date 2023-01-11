@@ -70,9 +70,6 @@ steps:
         KEYSTORE: <<parameters.keystore-file>>
       name: Downloading files
       command: <<include(scripts/download_files.sh)>>
-  - run:
-      name: test
-      command: echo [ -z "$variable_name" ]
   - when:
       condition:
         equal: [ "ANDROID_PRIVATE_SIGNING", <<parameters.runner>> ]

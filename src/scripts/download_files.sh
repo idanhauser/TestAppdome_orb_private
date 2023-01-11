@@ -3,12 +3,7 @@
 
 mkdir files
 echo "Downloading android file"
-if [[ "${APPFILE}" == *".ipa" ]]; then
-    wget "${APPFILE}" -O files/vanilla.ipa
-elif [[ "${APPFILE}" == *".apk" ]]; then
-    wget "${APPFILE}" -O files/vanilla.apk
-else
-    echo "Error: Unsupported file format"
+wget "${APPFILE}" -O files/$(basename "$APPFILE")
 fi
 if [[ -n "${SIGNOVERRIDS}" ]]; then
     echo "Downloading sign overrides"
@@ -33,6 +28,5 @@ if [[ -n "${ENTITLEMENTS}" ]]; then
     wget "${ENTITLEMENTS}" -O files/entitlements/
 fi
 ls files
-APPFILE=$(basename "$APPFILE")
+# APPFILE=$(basename "$APPFILE")
 
-sed -i 's/<<parameters.appFile>>/new_app_file/g' appdome_runner.yml
