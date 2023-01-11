@@ -2,9 +2,9 @@ description: >
   running appdome android auto signing.
 
 parameters:
-  appFile:
-    type: string
-    description: "Path to application"
+  # appFile:
+  #   type: string
+  #   description: "Path to application"
   fusion-set-id:
     type: string
     description: "Fusion set id"
@@ -31,7 +31,7 @@ parameters:
 steps:
   - run:
       environment:
-        APPFILE: <<parameters.appFile>>
+        APPFILE: "${APPFILE}"
         FUSIONSET: <<parameters.fusion-set-id>>
         KEYSTORE: <<parameters.keystore-file>>
         KEYSTORE_PASS: <<parameters.keystore-password>>
