@@ -36,6 +36,7 @@ workflows:
           keystore-password: "appdome"
           keystore-alias: "appdome"
           keystore-key-password: "appdome"
+		      sign-overrids: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/sign_overrides.json
           filters: *filters
       - orb-tools/pack:
           filters: *filters
