@@ -143,6 +143,6 @@ steps:
             sign-overrids: <<parameters.sign-overrids>>
   - store_artifacts:
       path: ./output/
-      destination: fused
+      destination: appdome_fusion
 
 
