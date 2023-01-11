@@ -27,6 +27,10 @@ parameters:
     type: string
     default: ""
     description: "keystore key password"
+  google-play-signing:
+    type: boolean
+    default: false
+    description: "google play signing"
   sign-overrids:
     type: string
     default: ""
