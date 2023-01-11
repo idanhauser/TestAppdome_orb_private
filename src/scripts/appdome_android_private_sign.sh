@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+echo "${APPFILE}"
 mkdir output
 VAR="${SIGNOVERRIDS}"
 ls
