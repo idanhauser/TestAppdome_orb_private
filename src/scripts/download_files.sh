@@ -6,7 +6,7 @@ echo "Downloading android file"
 wget "${APPFILE}" -O files/"$(basename "$APPFILE")"
 if [[ -n "${SIGNOVERRIDS}" ]]; then
     echo "Downloading sign overrides"
-    wget "${SIGNOVERRIDS}" -O files/sign_overrides.json
+    wget "${SIGNOVERRIDS}" -O files/"$(basename "$SIGNOVERRIDS")"
 fi
 if [[ -n "${KEYSTORE}" ]]; then
     echo "Downloading keystore"
