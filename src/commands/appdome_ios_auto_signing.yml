@@ -28,7 +28,7 @@ parameters:
   sign-overrides:
     type: string
     default: ""
-    description: "sign overrids"
+    description: "sign overrides"
 steps:
   - run:
       environment:
@@ -39,6 +39,6 @@ steps:
         KEYSTORE_PASS: <<parameters.keystore-password>>
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
         ENTITLEMENTS: <<parameters.entitlements>>
-        SIGNOVERRIDS: <<parameters.sign-overrids>>
+        SIGNOVERRIDES: <<parameters.sign-overrides>>
       name: Build Sign Download
       command: <<include(scripts/appdome_ios_auto_sign.sh)>>

@@ -4,10 +4,10 @@
 mkdir files
 echo "Downloading android file"
 wget "${APPFILE}" -O files/"$(basename "$APPFILE")"
-if [[ -z "${SIGNOVERRIDS}" ]]; then
+if [[ -z "${SIGNOVERRIDES}" ]]; then
     echo "Downloading sign overrides"
-    echo "${SIGNOVERRIDS}"
-    wget "${SIGNOVERRIDS}" -O files/"$(basename "$SIGNOVERRIDS")"
+    echo "${SIGNOVERRIDES}"
+    wget "${SIGNOVERRIDES}" -O files/"$(basename "$SIGNOVERRIDES")"
 fi
 if [[ -n "${KEYSTORE}" ]]; then
     echo "Downloading keystore"

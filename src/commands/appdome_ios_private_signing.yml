@@ -17,7 +17,7 @@ parameters:
   sign-overrides:
     type: string
     default: ""
-    description: "sign overrids"
+    description: "sign overrides"
 steps:
   - run:
       environment:
@@ -25,6 +25,6 @@ steps:
         FUSIONSET: <<parameters.fusion-set-id>>
         OUTPUT: <<parameters.output>>
         PROVISIONING_PROFILES: <<parameters.provisioning-profiles>>
-        SIGNOVERRIDS: <<parameters.sign-overrids>>
+        SIGNOVERRIDES: <<parameters.sign-overrides>>
       name: Build Sign Download
       command: <<include(scripts/appdome_ios_private_sign.sh)>>
