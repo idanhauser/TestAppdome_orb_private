@@ -32,7 +32,8 @@ workflows:
           appFile: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/FileFinder.ipa"
           output: "appname.ipa"
           fusion-set-id: "1103c040-91b5-11ed-814a-6b56d146e10d"
-          provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
+		  provisioning-profiles: https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/provision_profile.mobileprovision
+		  sign-overrides: "https://github.com/idanhauser/TestAppdome_orb_private/raw/main/files/sign_overrides.json"
           filters: *filters
       - orb-tools/pack:
           filters: *filters
