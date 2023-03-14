@@ -12,8 +12,8 @@ parameters:
     type: string
     default: FUSION_SET_ID_ANDROID
     description: "Fusion Set with the features you want to add to your android application."
-# docker:
-#   - image: cimg/python:3.9.16
+docker:
+  - image: cimg/base:current
 steps:
   - checkout
   - run:
