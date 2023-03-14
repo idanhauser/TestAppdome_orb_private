@@ -1,47 +1,67 @@
 description: >
-  This command echos "Hello World" using file inclusion.
-# What will this command do?
-# Descriptions should be short, simple, and clear.
+  Perform Appdome fusing with all types of Android and iOS signings.
 
-executor: default
-    steps:
-      - checkout
-      - run:
-          name: "secure-app"
-          command: |
-            apk --no-cache add curl jq
+parameters:
+  appdome-api-token:
+    type: env_var_name
+    default: APPDOME_API_TOKEN
+    description: "Appdome-provided API token"
+  appFile:
+    type: string
+    description: "Absolute path to your app"
+  fusion-set-id-android:
+    type: env_var_name
+    default: FUSION_SET_ID_ANDROID
+    description: "Fusion Set with the features you want to add to your android application."
+docker:
+  - image: cimg/python:3.9.16
+steps:
+  - checkout
+  - run:
+      name: Install requirements
+      command: |
+         apk --no-cache add curl jq
 
-            echo "uploading..."
-            publicLink=$(curl -s --request GET \
-            	--url "https://fusion.appdome.com/api/v1/upload-link" \
-              --header "Authorization: <API-Toke>")
-            curl -s -X PUT "$(echo "$publicLink" | jq -r .url)" \
-            	--header 'Content-Type: application/x-compressed-tar' \
-              -T "<app-file-name>"
-            app=$(curl -s \
-            	--request POST \
-              --url "https://fusion.appdome.com/api/v1/upload-using-link" \
-              --header "Authorization: <API-Toke>" \
-              --header 'content-type: multipart/form-data' \
-              --form file_name="<app-file-name>" \
-              --form file_app_id="$(echo "$publicLink" | jq -r .file_id)")
-            
-            echo "building..."
-            task_id=$(
-              curl -s --request POST \
-                --url "https://staging.appdome.com/api/v1/tasks" \
-                --header "Authorization: $APPDOME_API_TOKEN" \
-                --header 'accept: application/json' \
-                --header 'content-type: multipart/form-data' \
-                --form action=fuse \
-                --form fusion_set_id="$FUSION_SET_ID_ANDROID" \
-                --form app_id="$(echo "$app" | jq -r .id)" \
-            )
-            task_id="$(echo "$task_id" | jq -r .task_id)"
-            echo "task-id: $task_id"
-         
-workflows:
-  api-secure-app:
-    jobs:
-      - api-usage
+  - run:
+      name: secure-app
+      command: |
+       echo "uploading..."
+      publicLink=$(curl -s --request GET \
+          --url "https://fusion.appdome.com/api/v1/upload-link" \
+        --header "Authorization: $APPDOME_API_TOKEN")
+      curl -s -X PUT "$(echo "$publicLink" | jq -r .url)" \
+          --header 'Content-Type: application/x-compressed-tar' \
+        -T $APP_FILE
+      app=$(curl -s \
+          --request POST \
+        --url "https://fusion.appdome.com/api/v1/upload-using-link" \
+        --header "Authorization: $APPDOME_API_TOKEN" \
+        --header 'content-type: multipart/form-data' \
+        --form file_name=$APP_FILE \
+        --form file_app_id="$(echo "$publicLink" | jq -r .file_id)")
 
+
+      echo "building..."
+      task_id=$(
+          curl -s --request POST \
+            --url "https://fusion.appdome.com/api/v1/tasks" \
+            --header "Authorization: $APPDOME_API_TOKEN" \
+            --header 'accept: application/json' \
+            --header 'content-type: multipart/form-data' \
+            --form action=fuse \
+            --form fusion_set_id="$FUSION_SET" \
+            --form app_id="$(echo "$app" | jq -r .id)" |
+          jq -r .task_id
+        )
+
+      statusWaiter() {
+        task_id=$task_id
+        status="progress"
+        while [[ $status == "progress" ]]; do
+          status=$(curl -s --request GET \
+            --url "https://fusion.appdome.com/api/v1/tasks/$task_id/status?team_id=personal" \
+            --header 'Content-Type: application/json' \
+            --header "Authorization: $APPDOME_API_TOKEN" |
+            jq -r '.status')
+          sleep 0.5
+        done
