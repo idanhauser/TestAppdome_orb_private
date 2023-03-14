@@ -3,9 +3,6 @@ description: >
 # What will this job do?
 
 executor: default
-
-jobs:
-  api-usage:
     steps:
       - checkout
       - run:
