@@ -1,6 +1,7 @@
 description: >
-  Sample description
-# What will this job do?
+  This command echos "Hello World" using file inclusion.
+# What will this command do?
+# Descriptions should be short, simple, and clear.
 
 executor: default
     steps:
