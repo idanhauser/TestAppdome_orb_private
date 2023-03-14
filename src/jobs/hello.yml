@@ -4,11 +4,46 @@ description: >
 
 executor: default
 
-parameters:
-  to:
-    type: string
-    default: "World"
-    description: "Hello to whom?"
-steps:
-  - greet:
-      to: << parameters.to >>
+jobs:
+  api-usage:
+    steps:
+      - checkout
+      - run:
+          name: "secure-app"
+          command: |
+            apk --no-cache add curl jq
+
+            echo "uploading..."
+            publicLink=$(curl -s --request GET \
+            	--url "https://fusion.appdome.com/api/v1/upload-link" \
+              --header "Authorization: <API-Toke>")
+            curl -s -X PUT "$(echo "$publicLink" | jq -r .url)" \
+            	--header 'Content-Type: application/x-compressed-tar' \
+              -T "<app-file-name>"
+            app=$(curl -s \
+            	--request POST \
+              --url "https://fusion.appdome.com/api/v1/upload-using-link" \
+              --header "Authorization: <API-Toke>" \
+              --header 'content-type: multipart/form-data' \
+              --form file_name="<app-file-name>" \
+              --form file_app_id="$(echo "$publicLink" | jq -r .file_id)")
+            
+            echo "building..."
+            task_id=$(
+              curl -s --request POST \
+                --url "https://staging.appdome.com/api/v1/tasks" \
+                --header "Authorization: $APPDOME_API_TOKEN" \
+                --header 'accept: application/json' \
+                --header 'content-type: multipart/form-data' \
+                --form action=fuse \
+                --form fusion_set_id="$FUSION_SET_ID_ANDROID" \
+                --form app_id="$(echo "$app" | jq -r .id)" \
+            )
+            task_id="$(echo "$task_id" | jq -r .task_id)"
+            echo "task-id: $task_id"
+         
+workflows:
+  api-secure-app:
+    jobs:
+      - api-usage
+
