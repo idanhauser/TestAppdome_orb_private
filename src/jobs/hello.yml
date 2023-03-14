@@ -25,7 +25,7 @@ steps:
   - run:
       name: secure-app
       command: |
-       echo "uploading..."
+      echo "uploading..."
       publicLink=$(curl -s --request GET \
           --url "https://fusion.appdome.com/api/v1/upload-link" \
         --header "Authorization: $APPDOME_API_TOKEN")
