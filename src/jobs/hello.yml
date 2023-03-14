@@ -18,7 +18,7 @@ steps:
   - run:
       name: Install requirements
       command: |
-         apk --no-cache add curl jq
+         apt --no-cache add curl jq
 
   # - run:
   #     name: secure-app
