@@ -3,18 +3,17 @@ description: >
 
 parameters:
   appdome-api-token:
-    type: env_var_name
-    default: APPDOME_API_TOKEN
+    type: string
     description: "Appdome-provided API token"
   appFile:
     type: string
     description: "Absolute path to your app"
   fusion-set-id-android:
-    type: env_var_name
+    type: string
     default: FUSION_SET_ID_ANDROID
     description: "Fusion Set with the features you want to add to your android application."
-docker:
-  - image: cimg/python:3.9.16
+# docker:
+#   - image: cimg/python:3.9.16
 steps:
   - checkout
   - run:
