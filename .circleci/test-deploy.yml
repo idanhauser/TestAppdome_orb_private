@@ -21,11 +21,11 @@ workflows:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
       - testappdome-orb/hello:
-        appdome-api-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZmYzYWZkZTAtNzE3Mi0xMWVkLTk1MzMtZTE0NzJlMmZjZjc0Iiwic2FsdCI6IjZiYWQ3MGZkLWZmOTMtNDAyNi1hNDY3LTUyNDlhOGQ4ZTM2NyJ9.4XOZEbsgKh6gUgUYiu5EV3YpQQJz_vrmmoUS6QtSqvU"
-        team-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-        appFile: "/Users/idanhauser/work/Automation/Applications/Android/AndroidMediaPlayer.apk"
-        fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-        filters: *filters
+          appdome-api-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZmYzYWZkZTAtNzE3Mi0xMWVkLTk1MzMtZTE0NzJlMmZjZjc0Iiwic2FsdCI6IjZiYWQ3MGZkLWZmOTMtNDAyNi1hNDY3LTUyNDlhOGQ4ZTM2NyJ9.4XOZEbsgKh6gUgUYiu5EV3YpQQJz_vrmmoUS6QtSqvU"
+          team-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
+          appFile: "/Users/idanhauser/work/Automation/Applications/Android/AndroidMediaPlayer.apk"
+          fusion-set-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
+          filters: *filters
       - command-tests:
           filters: *filters
       - orb-tools/pack:
