@@ -20,12 +20,11 @@ workflows:
   test-deploy:
     jobs:
       # Make sure to include "filters: *filters" in every test job you want to run as part of your deployment.
-        - appdome-orb/appdome_runner:
-          name: "test-android-auto-sign"
-          team-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
-          appFile: "/Users/idanhauser/work/Automation/Applications/Android/AndroidMediaPlayer.apk"
-
-          filters: *filters
+      - testappdome-orb/hello:
+        name: "test-android-auto-sign"
+        team-id: "e4b37e10-90cc-11ed-a5ad-bf49482e84e0"
+        appFile: "/Users/idanhauser/work/Automation/Applications/Android/AndroidMediaPlayer.apk"
+        filters: *filters
       - command-tests:
           filters: *filters
       - orb-tools/pack:
