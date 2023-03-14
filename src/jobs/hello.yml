@@ -18,7 +18,7 @@ steps:
   - run:
       name: Install requirements
       command: |
-         apt --no-cache add curl jq
+         sudo apt-get install jq curl
 
   # - run:
   #     name: secure-app
